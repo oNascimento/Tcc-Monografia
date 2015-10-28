@@ -1,0 +1,211 @@
+
+\documentclass[oneside]{normas-utf-tex} %oneside = para dissertacoes com numero de paginas menor que 100 (apenas frente da folha) 
+
+% force A4 paper format
+%\special{papersize=210mm,297mm}
+
+\usepackage[brazil]{babel} % pacote portugues brasileiro
+\usepackage[utf8]{inputenc} % pacote para acentuacao direta
+\usepackage{amsmath,amsfonts,amssymb} % pacote matematico
+\usepackage{graphicx} % pacote grafico
+%\usepackage{times} % fonte times
+\usepackage[final]{pdfpages} % adicao da ata
+\usepackage{hyperref} % gera hiperlinks para o sumario, links, referencias -- deve vir antes do 'abntcite' 
+\usepackage{tabularx}
+\usepackage{pgfgantt}
+\usepackage{rotating}
+\usepackage[alf,abnt-emphasize=bf,bibjustif,recuo=0cm, abnt-etal-cite=2, abnt-etal-list=99]{abntcite} %configuracao correta das referencias bibliograficas.
+\usepackage{subfigure}
+\usepackage{xtab}
+\usepackage{nomencl}
+%\usepackage[portuguese,algoruled,longend,linesnumbered]{algorithm2e} %Para linhas numeradas e réguas de identação
+\usepackage{algorithm2e}
+\usepackage{listings}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0.25,0.5,0.35}
+\definecolor{jpurple}{rgb}{0.5,0,0.35}
+% Configurando layout para mostrar codigos Java
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{jpurple}\bfseries,
+  stringstyle=\color{red},
+  commentstyle=\color{verde},
+  morecomment=[s][\color{blue}]{/**}{*/},
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  backgroundcolor=\color{cyan!10},
+  breakautoindent=true,
+  captionpos=b,
+  xleftmargin=0pt,
+  tabsize=4
+}
+\renewcommand{\lstlistingname}{Código}
+\renewcommand\lstlistlistingname{Lista de Códigos}
+
+
+% ---------- Preambulo ----------
+\instituicao{Universidade Tecnol\'ogica Federal do Paran\'a} % nome da instituicao
+\departamento{Departamento Acad\^{e}mico de Computa\c{c}\~ao} % nome do programa
+\programa{Curso de Ci\^{e}ncia da Computa\c{c}\~ao} % área ou curso
+
+\documento{Trabalho de Conclusão de Curso}
+\nivel{Graduação}
+\titulacao{Bacharel} 
+
+\titulo{{Quadricóptero}} % titulo do trabalho em portugues
+\title{\MakeUppercase{Quadrotor}} % titulo do trabalho em ingles
+
+\autor{Fernando Padilha Ferreira} % autor do trabalho
+\cita{FERREIRA, Fernando Padilha} % sobrenome (maiusculas), nome do autor do trabalho
+
+\palavraschave{quadricóptero, multi-rotor, VTOL} % palavras-chave do trabalho
+\keywords{quadrotor, multi-rotor, VTOL} % palavras-chave do trabalho em ingles
+
+\comentario{\UTFPRdocumentodata\ apresentado ao \UTFPRdepartamentodata\ da \ABNTinstituicaodata\ como requisito parcial para obten\c{c}\~ao do título de ``\UTFPRtitulacaodata\ em Computação''.}
+
+\orientador{Prof. Dr. Hugo Vieira Neto} % nome do orientador do trabalho
+
+\primeiroassina{Prof. Fulano\\ UTFPR - Câmpus Medianeira}
+\segundoassina{Prof. Fulano\\ UTFPR - Câmpus Medianeira}
+\terceiroassina{Prof. Fulano\\ UTFPR - Câmpus Medianeira}
+\quartoassina{Prof. Fulano\\ UTFPR - Câmpus Medianeira}
+\textoaprovacao{Este \UTFPRdocumentodata\ foi apresentado \`{a}s xx:xxh do dia X de mês de 20XX como requisito parcial para a obtenção do título de \UTFPRtitulacaodata~no \UTFPRprogramadata, da \ABNTinstituicaodata, Câmpus Medianeira. O candidato foi arguido pela Banca Examinadora composta pelos professores abaixo assinados. Após deliberação, a Banca Examinadora considerou o trabalho aprovado.}
+
+\local{Medianeira} % cidade
+\data{\the\year} % ano automatico
+
+% desativa hifenizacao mantendo o texto justificado.
+% thanks to Emilio C. G. Wille
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\sloppy
+
+\definecolor{laranjautfpr}{cmyk}{0.0, 0.2, 1.0, 0.0}
+\usepackage{enumitem}
+\setlist{leftmargin=2cm}
+\setlist{nosep}
+
+
+%---------- Inicio do Documento ----------
+\begin{document}
+
+
+\capa % geracao automatica da capa
+\folhaderosto % geracao automatica da folha de rosto
+
+\termodeaprovacao
+
+%resumo
+\begin{resumo}
+Incluir o resumo aqui para testes de bla bla bla bla Incluir o resumo aqui para testes de bla bla bla bla Incluir o resumo aqui para testes de bla bla bla bla Incluir o resumo aqui para testes de bla bla bla bla Incluir o resumo aqui para testes de bla bla bla bla
+\end{resumo}
+
+%abstract
+\begin{abstract}
+Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here Include the abstract here.
+\end{abstract}
+
+%------------------------DEDICATÓRIA------------------------------
+
+\begin{dedicatoria}
+Dedicatória do trabalho (opcional). 
+\end{dedicatoria}
+
+%-----------------------AGRADECIMENTOS----------------------------
+\begin{agradecimentos}
+Agradecimentos do trabalho (opcional). 
+\end{agradecimentos}
+%-----------------------EPÍGRAFE-----------------------------------
+\begin{epigrafe}
+Epígrafe do trabalho (opcional). 
+\end{epigrafe}
+
+
+
+% listas (opcionais, mas recomenda-se a partir de 5 elementos)
+\listadefiguras % geracao automatica da lista de figuras
+\listadetabelas % geracao automatica da lista de tabelas
+%\listadequadros % adivinhe :)
+\listadesiglas % geracao automatica da lista de siglas
+%\listadesimbolos % geracao automatica da lista de simbolos
+
+% sumario
+\sumario % geracao automatica do sumario
+
+
+%---------- Inicio do Texto ----------
+% recomenda-se a escrita de cada capitulo em um arquivo texto separado (exemplo: intro.tex, fund.tex, exper.tex, concl.tex, etc.) e a posterior inclusao dos mesmos no mestre do documento utilizando o comando \input{}, da seguinte forma:
+
+%\setcounter{page}{48}
+
+\setlength{\parskip}{0.0cm}
+\input{intro.tex}
+\input{funda.tex}
+\input{metod.tex}
+\input{recur.tex}
+\input{viabi.tex}
+\input{concl.tex}
+
+
+%---------- Referencias ----------
+\clearpage % this is need for add +1 to pageref of bibstart used in 'ficha catalografica'.
+\label{bibstart}
+\bibliography{bibliografia} % geracao automatica das referencias a partir do arquivo bibliografia.bib
+\label{bibend}
+
+
+
+% --------- Ordenacao Afabetica da Lista de siglas --------
+%\textbf{* Observa\c{c}\~oes:} a ordenacao alfabetica da lista de siglas ainda nao eh realizada de forma automatica, porem
+% eh possivel se de realizar isto manualmente. Duas formas:
+%
+% ** Primeira forma)
+%    A ordenacao eh feita com o auxilio do comando 'sort', disponivel em qualquer
+% sistema Linux e UNIX, e tambem em sistemas Windows se instalado o coreutils (http://gnuwin32.sourceforge.net/packages/coreutils.htm)
+% comandos para compilar e ordenar, supondo que seu arquivo se chame 'dissertacao.tex':
+%
+%      $ latex dissertacao
+%      $ bibtex dissertacao && latex dissertacao
+%      $ latex dissertacao
+%      $ sort dissertacao.lsg > dissertacao.lsg.tmp
+%      $ mv dissertacao.lsg.tmp dissertacao.lsg
+%      $ latex dissertacao
+%      $ dvipdf dissertacao.dvi
+%
+%
+% ** Segunda forma)
+%\textbf{Sugest\~ao:} crie outro arquivo .tex para siglas e utilize o comando \sigla{sigla}{descri\c{c}\~ao}.
+%Para incluir este arquivo no final do arquivo, utilize o comando \input{arquivo.tex}.
+%Assim, Todas as siglas serao geradas na ultima pagina. Entao, devera excluir a ultima pagina da versao final do arquivo
+% PDF do seu documento.
+
+
+%-------- Citacoes ---------
+% - Utilize o comando \citeonline{...} para citacoes com o seguinte formato: Autor et al. (2011).
+% Este tipo de formato eh utilizado no comeco do paragrafo. P.ex.: \citeonline{autor2011}
+
+% - Utilize o comando \cite{...} para citacoeses no meio ou final do paragrafo. P.ex.: \cite{autor2011}
+
+
+
+%-------- Titulos com nomes cientificos (titulo, capitulos e secoes) ----------
+% Regra para escrita de nomes cientificos:
+% Os nomes devem ser escritos em italico, 
+%a primeira letra do primeiro nome deve ser em maiusculo e o restante em minusculo (inclusive a primeira letra do segundo nome).
+% VEJA os exemplos abaixo.
+% 
+% 1) voce nao quer que a secao fique com uppercase (caixa alta) automaticamente:
+%\section[nouppercase]{\MakeUppercase{Estudo dos efeitos da radiacao ultravioleta C e TFD em celulas de} {\textit{Saccharomyces boulardii}}
+%
+% 2) por padrao os cases (maiusculas/minuscula) sao ajustados automaticamente, voce nao precisa usar makeuppercase e afins.
+% \section{Introducao} % a introducao sera posta no texto como INTRODUCAO, automaticamente, como a norma indica.
+
+
+\end{document}
