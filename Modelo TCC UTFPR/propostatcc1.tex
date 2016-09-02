@@ -46,6 +46,7 @@
 }
 \renewcommand{\lstlistingname}{Código}
 \renewcommand\lstlistlistingname{Lista de Códigos}
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
 
 
 % ---------- Preambulo ----------
@@ -127,12 +128,11 @@ Agradecimentos do trabalho (opcional).
 Epígrafe do trabalho (opcional). 
 \end{epigrafe}
 
-
-
+\input{confListas}
+\IfFileExists{/etc/resolv.conf}{}{\listadefiguras} %Geração de lista de figuras e automáticas
+\IfFileExists{/etc/resolv.conf}{}{\listadetabelas} %Geração de lista de tabelas automáticas
 % listas (opcionais, mas recomenda-se a partir de 5 elementos)
-\listadefiguras % geracao automatica da lista de figuras
-\listadetabelas % geracao automatica da lista de tabelas
-%\listadequadros % adivinhe :)
+%\listadequadros % geração automatica da lista de quadros
 \listadesiglas % geracao automatica da lista de siglas
 %\listadesimbolos % geracao automatica da lista de simbolos
 

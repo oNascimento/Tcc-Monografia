@@ -1,0 +1,38 @@
+%Solução para o problema de numeração errada de equações, figuras e tabelas - Contribuições de Leandro Pasa UTFPR-MD 
+
+\listadefiguras % geracao automatica da lista de figuras
+\listadetabelas % geracao automatica da lista de tabelas)
+ 
+% para lista de figuras
+\makeatletter
+\renewcommand{\thefigure}{\@arabic\c@figure}
+\makeatother
+ 
+\makeatletter
+\@removefromreset{figure}{chapter}
+\makeatother
+ 
+ 
+% para lista de tabelas
+\makeatletter
+\renewcommand{\thetable}{\@arabic\c@table}
+\makeatother
+ 
+\makeatletter
+\@removefromreset{table}{chapter}
+\makeatother
+ 
+ 
+% para equações
+\makeatletter
+\renewcommand{\theequation}{\@arabic\c@equation}
+\makeatother
+ 
+\makeatletter
+\@removefromreset{equation}{chapter}
+\makeatother 
+
+% Para eliminar, nas listas de figuras e tabelas, o espaçamento que aparece entre figuras de capítulos diferentes:
+
+\addtocontents{lof}{\protect\noaddvspace} % para figuras
+\addtocontents{lot}{\protect\noaddvspace} % para tabelas
